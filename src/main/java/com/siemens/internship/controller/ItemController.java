@@ -1,5 +1,7 @@
-package com.siemens.internship;
+package com.siemens.internship.controller;
 
+import com.siemens.internship.model.Item;
+import com.siemens.internship.service.ItemService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

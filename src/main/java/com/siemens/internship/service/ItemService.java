@@ -1,5 +1,7 @@
-package com.siemens.internship;
+package com.siemens.internship.service;
 
+import com.siemens.internship.model.Item;
+import com.siemens.internship.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,8 @@ import java.util.concurrent.*;
 public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
-    private static ExecutorService executor = Executors.newFixedThreadPool(10);
-    private List<Item> processedItems = new ArrayList<>();
+    private static final ExecutorService executor = Executors.newFixedThreadPool(10);
+    private final List<Item> processedItems = new ArrayList<>();
     private int processedCount = 0;
 
 
@@ -46,7 +48,7 @@ public class ItemService {
      * Correct use of Spring's @Async annotation
      * Add appropriate comments explaining your changes and why they fix the issues
      * Write a brief explanation of what was wrong with the original implementation
-     *
+     * <p>
      * Hints
      * Consider how CompletableFuture composition can help coordinate multiple async operations
      * Think about appropriate thread-safe collections
@@ -84,4 +86,3 @@ public class ItemService {
     }
 
 }
-
