@@ -16,8 +16,12 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping("/api/items")
 public class ItemController {
 
+    private final ItemService itemService;
+
     @Autowired
-    private ItemService itemService;
+    public ItemController(ItemService itemService) {
+        this.itemService = itemService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Item>> getAllItems() {
@@ -59,8 +63,7 @@ public class ItemController {
 
     @GetMapping("/process")
     public ResponseEntity<List<Item>> processItems() {
-        List<Item> items = itemService.findAll();
-        CompletableFuture<List<Item>> listCompletableFuture = itemService.processAllItems(items);
+        CompletableFuture<List<Item>> listCompletableFuture = itemService.processAllItems();
         List<Item> processedItems = listCompletableFuture.join();
         return new ResponseEntity<>(processedItems, HttpStatus.OK);
     }

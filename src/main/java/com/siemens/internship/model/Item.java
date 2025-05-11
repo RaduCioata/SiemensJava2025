@@ -35,4 +35,5 @@ public class Item {
     @NotBlank
     @Email
     private String email;
+
 }
