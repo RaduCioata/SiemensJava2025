@@ -1,5 +1,9 @@
 ## Hi there 👋
 
+## Personal Notes
+- Added postman collection for manual testing: [Siemens.postman_collection.json](Siemens.postman_collection.json)
+- Example of request for processing items
+ ![processed test.png](processed%20test.png)
 
 ## Siemens Java Internship - Code Refactoring Project
 
